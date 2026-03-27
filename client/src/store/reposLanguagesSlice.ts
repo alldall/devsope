@@ -1,45 +1,45 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { api } from '@/services/api'
 
-export const fetchUser = createAsyncThunk(
-    'user/fetchUser',
+export const fetchReposLanguages = createAsyncThunk(
+    'reposLanguages/fetch',
     async (username: string) => {
-        const response = await api.get(`/user/${username}`)
+        const response = await api.get(`/repos-languages/${username}`)
         return response.data
     }
 )
 
-interface UserState {
-    data: any | null
+interface ReposLanguagesState {
+    data: Array<Record<string, number>>
     loading: boolean
     error: string | null
 }
 
-const initialState: UserState = {
-    data: null,
+const initialState: ReposLanguagesState = {
+    data: [],
     loading: false,
     error: null
 }
 
-const userSlice = createSlice({
-    name: 'user',
+const reposLanguagesSlice = createSlice({
+    name: 'reposLanguages',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchUser.pending, (state) => {
+            .addCase(fetchReposLanguages.pending, (state) => {
                 state.loading = true
                 state.error = null
             })
-            .addCase(fetchUser.fulfilled, (state, action) => {
+            .addCase(fetchReposLanguages.fulfilled, (state, action) => {
                 state.loading = false
                 state.data = action.payload
             })
-            .addCase(fetchUser.rejected, (state, action) => {
+            .addCase(fetchReposLanguages.rejected, (state, action) => {
                 state.loading = false
                 state.error = action.error.message || 'Ошибка'
             })
     }
 })
 
-export default userSlice.reducer
+export default reposLanguagesSlice.reducer

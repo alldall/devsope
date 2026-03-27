@@ -1,12 +1,20 @@
+'use client'
+
 import SearchBar from '@/components/SearchBar/SearchBar'
-import UserCard from '@/components/UserCard/UserCard'
+import LanguageChart from '@/components/Charts/LanguageChart'
+import ActivityChart from '@/components/Charts/ActivityChart'
 
 export default function Home() {
   return (
     <main>
-      <h1>DevScope</h1>
+      <h1>DevScope Dashboard</h1>
       <SearchBar />
-      <UserCard />
+
+      <h2>Top языки</h2>
+      <LanguageChart />
+
+      <h2>Активность репозиториев</h2>
+      <ActivityChart />
     </main>
   )
 }
