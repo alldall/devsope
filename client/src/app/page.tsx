@@ -5,6 +5,7 @@ import LanguageChart from '@/components/Charts/LanguageChart'
 import ActivityChart from '@/components/Charts/ActivityChart'
 import styles from './page.module.scss'
 import UserCard from '@/components/UserCard/UserCard'
+import TopRepos from '@/components/TopRepos/TopRepos'
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
           <h2>Top языки</h2>
           <LanguageChart />
         </div>
+        
+        <TopRepos />
 
         <div className={styles.card}>
           <h2>Активность репозиториев</h2>

@@ -1,0 +1,24 @@
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.repo {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #334155;
+}
+
+.repo:last-child {
+    border-bottom: none;
+}
+
+.name {
+    font-weight: 500;
+}
+
+.stars {
+    color: #facc15;
+}
