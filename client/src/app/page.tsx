@@ -3,18 +3,26 @@
 import SearchBar from '@/components/SearchBar/SearchBar'
 import LanguageChart from '@/components/Charts/LanguageChart'
 import ActivityChart from '@/components/Charts/ActivityChart'
+import styles from './page.module.scss'
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.container}>
       <h1>DevScope Dashboard</h1>
+
       <SearchBar />
 
-      <h2>Top языки</h2>
-      <LanguageChart />
+      <div className={styles.charts}>
+        <div className={styles.card}>
+          <h2>Top языки</h2>
+          <LanguageChart />
+        </div>
 
-      <h2>Активность репозиториев</h2>
-      <ActivityChart />
+        <div className={styles.card}>
+          <h2>Активность репозиториев</h2>
+          <ActivityChart />
+        </div>
+      </div>
     </main>
   )
 }

@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #1e293b;
+    color: white;
+}
+
+.button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background: #6366f1;
+    color: white;
+}

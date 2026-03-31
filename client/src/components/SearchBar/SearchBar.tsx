@@ -6,6 +6,7 @@ import { AppDispatch } from '@/store'
 import { fetchUser } from '@/store/userSlice'
 import { fetchRepos } from '@/store/reposSlice'
 import { fetchReposLanguages } from '@/store/reposLanguagesSlice'
+import styles from './SearchBar.module.scss'
 
 export default function SearchBar() {
     const [username, setUsername] = useState('')
@@ -19,14 +20,14 @@ export default function SearchBar() {
     }
 
     return (
-        <div>
-            <input
+        <div className={styles.container}>
+            <input className={styles.input}
                 type="text"
                 value={username}
                 placeholder="Введите GitHub ник"
                 onChange={(e) => setUsername(e.target.value)}
             />
-            <button onClick={handleSearch}>Поиск</button>
+            <button className={styles.button} onClick={handleSearch}>Поиск</button>
         </div>
     )
 }
