@@ -1,0 +1,10 @@
+.button {
+  background-color: transparent;
+  color: var(--button-text);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 35px;
+}/*# sourceMappingURL=ThemeToggle.module.css.map */

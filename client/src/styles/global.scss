@@ -1,18 +1,50 @@
 @import './variables.scss';
 
+:root {
+    --bg-color: #f8fafc;
+    --text-color: #111827;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.8);
+    --button-bg: #2563EB;
+    --button-text: #ffffff;
+    --input-bg: #1e293b;
+    --input-text: #ffffff;
+    --history-bg: #b3b3b3;
+}
+
+[data-theme='dark'] {
+    --bg-color: #1e293b;
+    --text-color: #f8fafc;
+    --card-bg: #334155;
+    --card-shadow: rgba(0, 0, 0, 0.5);
+    --button-bg: #6366f1;
+    --button-text: #ffffff;
+    --input-bg: #ffffff;
+    --input-text: #000000;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background: $bg;
-    color: $text;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 h1,
 h2 {
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 button {
     cursor: pointer;
+    font-weight: 500;
+}
+
+input,
+label,
+p,
+span {
+    font-weight: 400;
+    color: var(--text-color);
 }

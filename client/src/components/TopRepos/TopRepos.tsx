@@ -6,7 +6,9 @@ import styles from './TopRepos.module.scss'
 
 export default function TopRepos() {
     const repos = useSelector((state: RootState) => state.repos.data)
-
+    const user = useSelector((state: RootState) => state.user.data)
+    
+    if (!user) return null
     if (!repos || repos.length === 0) return <p>Нет данных</p>
 
     const topRepos = [...repos]
@@ -15,6 +17,7 @@ export default function TopRepos() {
 
     return (
         <div className={styles.card}>
+            <h2>Топ репозитории</h2>
             {topRepos.map((repo: any) => (
                 <div key={repo.id} className={styles.repo}>
                     <span className={styles.name}>{repo.name}</span>

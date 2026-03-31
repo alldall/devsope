@@ -5,18 +5,35 @@
 }
 
 .input {
-    padding: 10px;
+    padding: 20px 10px;
     border-radius: 8px;
     border: none;
     outline: none;
-    background: #1e293b;
-    color: white;
+    background: var(--input-bg);
 }
 
 .button {
     padding: 10px 15px;
     border-radius: 8px;
     border: none;
-    background: #6366f1;
-    color: white;
+    background: var(--button-bg);
+    color: var(--button-text);
+}
+
+.history {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.historyItem {
+    background: var(--input-bg);
+    border: none;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: var(--input-text);
+    cursor: pointer;
+    transition: background-color 0.3s;
 }

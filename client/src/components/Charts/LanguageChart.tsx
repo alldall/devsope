@@ -33,7 +33,7 @@ export default function LanguageChart() {
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
-                <Bar dataKey="count" fill="#8884d8" />
+                <Bar dataKey="count" fill="#2563EB" />
             </BarChart>
         </ResponsiveContainer>
     )
