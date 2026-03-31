@@ -1,37 +1,49 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState, AppDispatch } from '@/store'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import { parseISO, format } from 'date-fns'
-import { fetchActivity } from '@/store/activitySlice'
 
 interface ChartData {
-    month: string
+    date: string
     count: number
 }
 
 export default function ActivityChart() {
-    const dispatch = useDispatch<AppDispatch>()
-    const activity = useSelector((state: RootState) => state.activity.data)
-    const loading = useSelector((state: RootState) => state.activity.loading)
+    const repos = useSelector((state: RootState) => state.repos.data)
 
-    useEffect(() => {
-        const username = localStorage.getItem('lastSearchedUser')
-        if (username) dispatch(fetchActivity(username))
-    }, [dispatch])
+    if (!repos || repos.length === 0) return <p>Нет данных</p>
 
-    if (loading) return <p>Загрузка...</p>
-    if (!activity || activity.length === 0) return <p>Нет данных</p>
+    const activityMap: Record<string, number> = {}
+
+    repos.forEach((repo: any) => {
+        if (repo.updated_at) {
+            const date = format(parseISO(repo.updated_at), 'yyyy-MM-dd')
+            activityMap[date] = (activityMap[date] || 0) + 1
+        }
+    })
+
+    const chartData: ChartData[] = Object.keys(activityMap)
+        .sort()
+        .map((date) => ({
+            date,
+            count: activityMap[date],
+        }))
 
     return (
         <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={activity}>
+            <LineChart data={chartData}>
                 <XAxis dataKey="date" />
                 <YAxis />
                 <Tooltip />
-                <Line type="monotone" dataKey="count" stroke="#82ca9d" strokeWidth={2} dot={false} />
+                <Line
+                    type="monotone"
+                    dataKey="count"
+                    stroke="#82ca9d"
+                    strokeWidth={2}
+                    dot={false}
+                />
             </LineChart>
         </ResponsiveContainer>
     )
