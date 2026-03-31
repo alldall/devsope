@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: Arial, sans-serif;
+}
+
+h1,
+h2 {
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+}/*# sourceMappingURL=global.css.map */

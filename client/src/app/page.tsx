@@ -4,6 +4,7 @@ import SearchBar from '@/components/SearchBar/SearchBar'
 import LanguageChart from '@/components/Charts/LanguageChart'
 import ActivityChart from '@/components/Charts/ActivityChart'
 import styles from './page.module.scss'
+import UserCard from '@/components/UserCard/UserCard'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <h1>DevScope Dashboard</h1>
 
       <SearchBar />
+      <UserCard />
 
       <div className={styles.charts}>
         <div className={styles.card}>
